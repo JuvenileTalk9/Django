@@ -3,10 +3,11 @@
 [Django](https://www.djangoproject.com/)の勉強のアウトプットをまとめました。
 
 ## 前提
-- Windows10
+- CentOS 7.6
 - Miniconda3 4.8.4
 - Python 3.7.7
 - Django 3.2
+- PostgreSQL 9.2
 - Pythonの知識を有していること
 
 ## 目次
@@ -17,4 +18,5 @@
 5. [データベース連携](https://github.com/JuvenileTalk9/Django/blob/main/05_データベース連携/データベース連携.md)
 
 ## 参考書籍
-[Django Webアプリ開発 実装ハンドブック](hhttps://www.shuwasystem.co.jp/book/9784798055459.html)
+
+[Django Webアプリ開発 実装ハンドブック](https://www.shuwasystem.co.jp/book/9784798055459.html)
