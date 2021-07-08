@@ -1,4 +1,4 @@
-# Boootstrapを使う
+# Bootstrapを使う
 
 ここでは、Bootstrapを使用しておしゃれなブログアプリを作ってみます。
 
@@ -141,5 +141,81 @@ urlpatterns = [
 
 開発サーバを起動して、[http://127.0.0.1:8000/](http://127.0.0.1:8000/)に接続してみます。Top Pageと表示されるだけの簡素なページが表示されることが確認できたと思います。これで、ルーティング→ビュー→テンプレートの一連の流れができることが確認できました。
 
+## Bootstrapを使用する
+
+ここからは、先程作成したTop Pageと表示されるだけのページをブログのような見た目にしていきます。あくまでも見た目だけの話で、データベース連携などは次章以降に実施します。
+
+ここでは、[Start Bootstrap](https://startbootstrap.com/)のサイトから、[Clean Blog](https://startbootstrap.com/theme/clean-blog)というテンプレートをダウンロードして使っていこうと思います。サイトから「Free Download」をクリックしてZIPファイルをダウンロードしてください。
+
+ダウンロードしたZIPファイルを展開すると、次のようなディレクトリ構成となっていると思います。
+
+```sh
+startbootstrap-clean-blog-gh-pages
+│  about.html
+│  contact.html
+│  index.html
+│  post.html
+│
+├─assets
+│  │  favicon.ico
+│  │
+│  └─img
+│          about-bg.jpg
+│          contact-bg.jpg
+│          home-bg.jpg
+│          post-bg.jpg
+│          post-sample-image.jpg
+│
+├─css
+│      styles.css
+│
+└─js
+        scripts.js
+```
+
+まずは、、先程作成したTop Pageを表示するだけのhtmlドキュメントを、Bootstrapの```index.html```で上書きしてください。開発サーバを起動すると、htmlの内容が更新されていることがわかりますが、まだCSSやJavaScript、画像などを適用していないため、テキストだけの簡素なページとなっていると思います。
+
+次に、```sset```、```css```、```js```ディレクトリをBlogアプリのディレクトリにコピーします。これらのファイルは静的ファイルと呼ばれており、Djangoでは静的ファイルを```static```ディレクトリに配置する決まりとなっています。正確には、プロジェクトの```settings.py```の以下で設定されているディレクトリに配置することになります。
+
+```py
+STATIC_URL = '/static/'
+```
+
+```blog/static/```ディレクトリを作成し、その中に先程の3つのディレクトリをコピーすれば、静的ファイルの配置は完了です。
+
+最後に、Djangoが静的ファイルを参照できるような仕組みを実装します。Djangoではテンプレートを使って動的なHTMLドキュメントを生成するための仕組みとしてテンプレートタグがあります。テンプレートタグは、
+
+```html
+{%    %}
+```
+のように、波括弧と%で囲った範囲で記述することができます。テンプレートタグでstaticディレクトリをロードするためには、まずテンプレートタグ```load```で```static```タグをロードします。これを```index.html```の先頭に記述してください。
+
+```html
+{% load static %}
+```
+
+次に、```static```タグを使用して、<link>タグなどで静的ファイルを参照するURLを動的生成します。具体的には、次の部分になります。
+
+```html
+9行目       <link rel="icon" type="image/x-icon" href={% static 'assets/favicon.ico' %} />
+16行目      <link href={% static 'css/styles.css' %} rel="stylesheet" />
+38行目      <header class="masthead" style="background-image: url({% static 'assets/img/home-bg.jpg' %})">
+151行目     <script src="{% static 'js/scripts.js' %}"></script>
+```
+
+上から順番に、ファビコンの画像、CSSファイル、背景画像ファイル、JavaScriptのURLが動的に生成されるようになります。
+
+最後に、画面上部にトップページへ遷移するリンク「Start Bootstrap」「HOME」があるので、遷移先のURL（http://127.0.0.1:8000）を自動生成します。URLを生成するためには```url```タグを使用します。
+
+```html
+22行目      <a class="navbar-brand" href={% url 'blog:index' %}>Start Bootstrap</a>
+29行目      <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'blog:index' %}>Home</a></li>
+```
+
+ここで、```{% url 'blog:index'}```のうち```blog```は```blog/urls.py```で指定した```app_name```を、```index```は同じく```blog/urls.py```の```path('', views.IndexView.as_view(), name='index')```の```name```属性で指定した値です。このように```app_name```や```name```を設定しておくと、URLが逆引きできるため便利です。
+
+index.html全体は以下になります。正しく設定できていれば、[Start Bootstrap](https://startbootstrap.com/theme/clean-blog)のサンプルにあるようなページが表示されるはずです。
+
+[index.html](https://github.com/JuvenileTalk9/Django/blob/main/sampleproject/blog/templates/index.html)
 
 [目次へ戻る](https://github.com/JuvenileTalk9/Django)
