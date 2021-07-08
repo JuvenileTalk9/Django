@@ -205,7 +205,7 @@ STATIC_URL = '/static/'
 
 上から順番に、ファビコンの画像、CSSファイル、背景画像ファイル、JavaScriptのURLが動的に生成されるようになります。
 
-最後に、画面上部にトップページへ遷移するリンク「Start Bootstrap」「HOME」があるので、遷移先のURL（http://127.0.0.1:8000）を自動生成します。URLを生成するためには```url```タグを使用します。
+最後に、画面上部にトップページへ遷移するリンク「Start Bootstrap」「HOME」があるので、遷移先のURL（[http://127.0.0.1:8000](http://127.0.0.1:8000)）を自動生成します。URLを生成するためには```url```タグを使用します。
 
 ```html
 22行目      <a class="navbar-brand" href={% url 'blog:index' %}>Start Bootstrap</a>
