@@ -13,7 +13,7 @@
 1. [Djangoとは](https://github.com/JuvenileTalk9/Django/blob/main/01_Djangoとは/Djangoとは.md)
 2. [環境構築](https://github.com/JuvenileTalk9/Django/blob/main/02_環境構築/環境構築.md)
 3. [プロジェクトを作る](https://github.com/JuvenileTalk9/Django/blob/main/03_プロジェクトを作る/プロジェクトを作る.md)
-4. [Boootstrapを使う](https://github.com/JuvenileTalk9/Django/blob/main/04_Boootstrapを使う/Boootstrapを使う.md)
+4. [Bootstrapを使う](https://github.com/JuvenileTalk9/Django/blob/main/04_Bootstrapを使う/Bootstrapを使う.md)
 
 ## 参考書籍
 [Django Webアプリ開発 実装ハンドブック](hhttps://www.shuwasystem.co.jp/book/9784798055459.html)
