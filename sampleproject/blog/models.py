@@ -18,7 +18,7 @@ class BlogPost(models.Model):
         verbose_name='本文'
     )
 
-    postged_at = models.DateTimeField(
+    posted_at = models.DateTimeField(
         verbose_name='投稿日時',
         auto_now_add=True
     )
