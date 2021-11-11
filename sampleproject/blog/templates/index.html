@@ -2,10 +2,12 @@
 <html>
 <head></head>
 <body>
-    <h2>{{hello}}</h2>
-    {% for record in object_list %}
-    <h3>{{record.title}}</h3>
-    <p>{{record.content}}</p>
-    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit">
+    </form>
 </body>
 </html>
