@@ -16,6 +16,9 @@
 3. [プロジェクトを作る](https://github.com/JuvenileTalk9/Django/blob/main/03_プロジェクトを作る/プロジェクトを作る.md)
 4. [Bootstrapを使う](https://github.com/JuvenileTalk9/Django/blob/main/04_Bootstrapを使う/Bootstrapを使う.md)
 5. [データベース連携](https://github.com/JuvenileTalk9/Django/blob/main/05_データベース連携/データベース連携.md)
+6. [ページ遷移]()
+7. [非同期通信によるデータ送受信]()
+8. [セキュリティ]()
 
 ## 参考書籍
 
